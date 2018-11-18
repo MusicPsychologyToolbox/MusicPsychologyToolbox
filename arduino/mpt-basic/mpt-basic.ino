@@ -27,6 +27,12 @@ int sync = 0;
 int buttonState = 0;
 int timestamp;
 
+// Comment this out to deactivate the airflow collection.
+#define AIRFLOW_SENSOR
+
+// Comment this out to deactivate the pulse collection.
+#define PULSE_SENSOR
+
 /**
  * 1s  = 1000ms
  * 1s  = 1000,000us 
@@ -76,10 +82,14 @@ void getData() {
    * 
    * https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/
    */
+#ifdef AIRFLOW_SENSOR
   value1 = analogRead(A0); // 100us
   value2 = analogRead(A1); // 100us
   value3 = analogRead(A2); // 100us
+#endif
+#ifdef PULSE_SENSOR
   value4 = analogRead(A3); // 100us => 500us => 0.0001s
+#endif
   newData = true;
 }
 
@@ -99,14 +109,18 @@ void loop() {
     Serial.print(time_ms);
     Serial.print(",");
     Serial.print(sync);
+#ifdef AIRFLOW_SENSOR
     Serial.print(",");
     Serial.print(value1);
     Serial.print(",");
     Serial.print(value2);
     Serial.print(",");
     Serial.print(value3);
+#endif
+#ifdef PULSE_SENSOR
     Serial.print(",");
     Serial.print(value4);
+#endif
     Serial.println();
   }
 }
