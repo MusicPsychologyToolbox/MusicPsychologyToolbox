@@ -22,7 +22,7 @@
 #include "TimerOne.h"
 
 bool newData = false;
-int value1, value2, value3, value4;
+int air1, air2, air3, pulse;
 int sync = 0;
 int buttonState = 0;
 int timestamp;
@@ -83,12 +83,12 @@ void getData() {
    * https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/
    */
 #ifdef AIRFLOW_SENSOR
-  value1 = analogRead(A0); // 100us
-  value2 = analogRead(A1); // 100us
-  value3 = analogRead(A2); // 100us
+  air1 = analogRead(A0); // 100us
+  air2 = analogRead(A1); // 100us
+  air3 = analogRead(A2); // 100us
 #endif
 #ifdef PULSE_SENSOR
-  value4 = analogRead(A3); // 100us => 500us => 0.0001s
+  pulse = analogRead(A3); // 100us => 500us => 0.0001s
 #endif
   newData = true;
 }
@@ -111,15 +111,15 @@ void loop() {
     Serial.print(sync);
 #ifdef AIRFLOW_SENSOR
     Serial.print(",");
-    Serial.print(value1);
+    Serial.print(air1);
     Serial.print(",");
-    Serial.print(value2);
+    Serial.print(air2);
     Serial.print(",");
-    Serial.print(value3);
+    Serial.print(air3);
 #endif
 #ifdef PULSE_SENSOR
     Serial.print(",");
-    Serial.print(value4);
+    Serial.print(pulse);
 #endif
     Serial.println();
   }
