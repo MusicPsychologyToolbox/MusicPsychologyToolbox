@@ -1,4 +1,4 @@
-# Music Psychology Toolbox
+# Music Psychology Toolbox (MPT)
 #
 # Copyright (c) 2016-2018 Christopher Fust
 # Copyright (c) 2016-2018 Alexander Fust
