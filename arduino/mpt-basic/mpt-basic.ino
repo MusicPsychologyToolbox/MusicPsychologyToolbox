@@ -21,17 +21,21 @@
 
 #include "TimerOne.h"
 
-bool newData = false;
-int air1, air2, air3, pulse;
-int sync = 0;
-int buttonState = 0;
-int timestamp;
-
 // Comment this out to deactivate the airflow collection.
 #define AIRFLOW_SENSOR
 
 // Comment this out to deactivate the pulse collection.
 #define PULSE_SENSOR
+
+// Comment this out to deactivate PIN13 debug toggeling.
+// This pin is used to meassure interval timing issues.
+//#define TOGGLE_PIN_ON_INTERRUPT
+
+bool newData = false;
+int air1, air2, air3, pulse;
+int sync = 0;
+int buttonState = 0;
+int timestamp;
 
 /**
  * 1s  = 1000ms
@@ -61,8 +65,9 @@ void setup() {
   pinMode(3, INPUT);
   pinMode(9, OUTPUT);
 
-  // interrupt test pin/oscilloscope
+#ifdef TOGGLE_PIN_ON_INTERRUPT
   pinMode(13, OUTPUT);
+#endif
 
   // prevent disruptive default interrupt
   cli(); // disable interrupts
@@ -71,8 +76,9 @@ void setup() {
 }
 
 void getData() {
-  // toggle pin to meassure interval issues
-  PINB |= 1 << PORTB5; 
+#ifdef TOGGLE_PIN_ON_INTERRUPT
+  PINB |= 1 << PORTB5;
+#endif
   
   time_ms += TIME_MS_INTERVAL;
   
