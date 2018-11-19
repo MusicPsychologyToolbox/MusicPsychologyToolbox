@@ -39,19 +39,20 @@ int timestamp;
 
 /**
  * 1s  = 1000ms
- * 1s  = 1000,000us 
+ * 1s  = 1000,000us
  * 1ms = 1000us
  * 
- * for a 10ms  measurement interval set interrupt to 10 000us => 100 reads/s
- * for a 50ms  measurement interval set interrupt to 50 000us => 20 reads/s
- * for a 100ms measurement interval set interrupt to 100 000us => 10 reads/s
+ * for a   1ms measurement interval set interrupt to    1000us => 1000 Hz
+ * for a  10ms measurement interval set interrupt to  10'000us =>  100 Hz
+ * for a  50ms measurement interval set interrupt to  50'000us =>   20 Hz
+ * for a 100ms measurement interval set interrupt to 100'000us =>   10 Hz
  */
-unsigned long sample_rate_us = 10000;
+unsigned long sample_rate_us = 1000;
 
 /**
  * Change TIME_MS_INTERVAL according to sample_rate_us.
  */
-#define TIME_MS_INTERVAL  10
+#define TIME_MS_INTERVAL  1UL
 
 /**
  * Time ms counter.
