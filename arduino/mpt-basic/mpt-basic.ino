@@ -35,7 +35,6 @@ bool newData = false;
 int air1, air2, air3, pulse;
 int sync = 0;
 int buttonState = 0;
-int timestamp;
 
 /**
  * 1s  = 1000ms
