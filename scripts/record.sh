@@ -53,7 +53,7 @@ arecordmidi -p 20:0 midi_$DATE.mid &
 # can be found at https://github.com/MrMontag
 ttylog -b 115200 -d /dev/ttyACM0 -t $1 -f | tee data_$DATE.csv
 # Prepend header to data_$DATE.csv
-echo -e "time,sync,air1,air2,air3\n$(cat data_$DATE.csv)" > data_$DATE.csv
+echo -e "time,sync,air1,air2,air3,pulse\n$(cat data_$DATE.csv)" > data_$DATE.csv
 
 # stop midi recording
 MIDI_PID=$(pgrep arecordmidi)
