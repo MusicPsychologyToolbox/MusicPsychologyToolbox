@@ -4,7 +4,7 @@ All projects below are used and tested on an Arduino Uno Rev3. The projects/sket
 
 ## mpt-avr
 
-An Atmel Studio 7 project which does not use Arduino libraries.
+An Atmel Studio 7 project, which does not use Arduino libraries.
 
 ## mpt-basic
 
