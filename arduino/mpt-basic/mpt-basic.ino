@@ -111,7 +111,6 @@ void loop() {
     sync = 0;
   }
   if (newData) {
-    newData = false;
     Serial.print(time_ms);
     Serial.print(",");
     Serial.print(sync);
@@ -128,5 +127,6 @@ void loop() {
     Serial.print(pulse);
 #endif
     Serial.println();
+    newData = false;
   }
 }
