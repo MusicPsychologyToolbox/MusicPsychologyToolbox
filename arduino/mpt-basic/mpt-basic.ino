@@ -126,7 +126,7 @@ void loop() {
     Serial.print(",");
     Serial.print(pulse);
 #endif
-    Serial.println();
+    Serial.print("\n");
     newData = false;
   }
 }
