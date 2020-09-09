@@ -46,12 +46,12 @@ int buttonState = 0;
  * for a  50ms measurement interval set interrupt to  50'000us =>   20 Hz
  * for a 100ms measurement interval set interrupt to 100'000us =>   10 Hz
  */
-unsigned long sample_rate_us = 1000;
+unsigned long sample_rate_us = 5000;
 
 /**
  * Change TIME_MS_INTERVAL according to sample_rate_us.
  */
-#define TIME_MS_INTERVAL  1UL
+#define TIME_MS_INTERVAL  5UL
 
 /**
  * Time ms counter.
@@ -73,6 +73,10 @@ void setup() {
   cli(); // disable interrupts
   TIMSK0 &= ~(1 << TOIE0);
   sei(); // enable interrupts
+
+  // Use this line to sync the app
+  // which connects to the Arduino.
+  Serial.print("\nArduino Ready\n");
 }
 
 void getData() {
@@ -99,7 +103,7 @@ void getData() {
   newData = true;
 }
 
-// TODO CH reset time_ms on sync?
+// TODO CH reset time_ms on sync? // AF remove??
 void loop() {
   buttonState = digitalRead(3);
   if (buttonState){
