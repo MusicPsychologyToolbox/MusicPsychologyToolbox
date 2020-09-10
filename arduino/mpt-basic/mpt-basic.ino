@@ -83,7 +83,7 @@ void getData() {
 #ifdef TOGGLE_PIN_ON_INTERRUPT
   PINB |= 1 << PORTB5;
 #endif
-  
+
   time_ms += TIME_MS_INTERVAL;
   
   /**
@@ -103,10 +103,10 @@ void getData() {
   newData = true;
 }
 
-// TODO CH reset time_ms on sync? // AF remove??
+// TODO CH reset time_ms on sync?
 void loop() {
   buttonState = digitalRead(3);
-  if (buttonState){
+  if (buttonState){ // TODO AF remove??
     digitalWrite(9, HIGH); 
     sync = -1;
   }
@@ -115,7 +115,7 @@ void loop() {
     sync = 0;
   }
   if (newData) {
-    Serial.print(time_ms);
+    Serial.print(time_ms - TIME_MS_INTERVAL);
     Serial.print(",");
     Serial.print(sync);
 #ifdef AIRFLOW_SENSOR
