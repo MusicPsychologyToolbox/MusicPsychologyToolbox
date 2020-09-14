@@ -4,15 +4,15 @@ All projects below are used and tested on an Arduino Uno Rev3. The projects/sket
 
 ## mpt-avr
 
-An Atmel Studio 7 project, which does not use Arduino libraries.
+PoC: An Atmel Studio 7 project, which does not use Arduino libraries.
 
 ## mpt-basic
 
-The MPT Arduino sketch using the TimerOne library (https://github.com/PaulStoffregen/TimerOne)
+The MPT Arduino sketch using the TimerOne library (https://github.com/PaulStoffregen/TimerOne). This is the sketch which should be the usual choice.
 
 ## mpt-isr
 
-The MPT Arduino sketch using `ISR(TIMER1_OVF_vect)` instead of TimerOne.
+PoC: The MPT Arduino sketch using `ISR(TIMER1_OVF_vect)` instead of TimerOne.
 
 ## testing
 
