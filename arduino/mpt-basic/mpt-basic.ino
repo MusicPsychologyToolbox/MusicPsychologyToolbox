@@ -103,10 +103,9 @@ void getData() {
   newData = true;
 }
 
-// TODO CH reset time_ms on sync?
 void loop() {
   buttonState = digitalRead(3);
-  if (buttonState){ // TODO AF remove??
+  if (buttonState){
     digitalWrite(9, HIGH); 
     sync = -1;
   }
