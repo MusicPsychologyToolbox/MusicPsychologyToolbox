@@ -2,7 +2,7 @@
 
 The MusicPsychologyToolbox contains tools to measure human vital functions (breathing and heart rate) together with musical performance parameters like audio, midi and video to make music psychological studies possible.  
 
-* The folder "Arduino" contains various sketches for recording the measured values with the Arduino.
+* The folder "arduino" contains various sketches for recording the measured values with the Arduino Uno.
 
 * The "scripts" folder contains the script for recording data with a Linux based computer, like RaspberryPi.
 
