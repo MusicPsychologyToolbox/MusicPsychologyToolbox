@@ -14,10 +14,24 @@ For more information see the [Wiki](https://github.com/MusicPsychologyToolbox/Mu
 
 mtp-collect.py is the script that collects all the data from the two Vernier Respirations Belts used in the experiment. Details about the usage of the respiration belts can be found at https://www.vernier.com/product/go-direct-respiration-belt/ and https://vernierst.github.io/godirect-examples/python/.
 
+In order to run the script, the latestest version of [python](https://www.python.org/downloads/) needs to be installed. 
+
+In addition to that, the [godirect](https://github.com/VernierST/godirect-py) library needs to be installed.
+
+```
+pip install godirect
+```
+
 To run the script on Windows for a measurement of five minutes, use the following command:
 
-`python mtp-collect.py --seconds 300`
+```
+python mtp-collect.py --seconds 300
+```
 
 To show the help type
 
-`python mtp-collect.py --help`
+```
+python mtp-collect.py --help
+```
+
+The script is based on the examples given at [godirect-examples](https://github.com/VernierST/godirect-examples) repository.
